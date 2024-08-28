@@ -1,25 +1,20 @@
-import { createBrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Landing, ProductListing, ShoppingCart } from "../pages";
+import { ROUTES } from "./constants";
+import { PageLayout } from "../components/PageLayout";
 
-const routes = {
-  landing: "/",
-  productListing: "/product",
-  shoppingCart: "/cart",
+const Router = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path={ROUTES.Landing} element={<PageLayout />}>
+          <Route index element={<Landing />} />
+          <Route path={ROUTES.ProductListing} element={<ProductListing />} />
+          <Route path={ROUTES.ShoppingCart} element={<ShoppingCart />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 };
-
-const Router = createBrowserRouter([
-  {
-    path: routes.landing,
-    element: <Landing />,
-  },
-  {
-    path: routes.productListing,
-    element: <ProductListing />,
-  },
-  {
-    path: routes.shoppingCart,
-    element: <ShoppingCart />,
-  },
-]);
 
 export default Router;
