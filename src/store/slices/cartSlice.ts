@@ -31,7 +31,7 @@ export const cartSlice = createSlice({
     },
     deleteFromCart: (state, action: PayloadAction<number>) => {
       state.products = state.products.filter(
-        (product) => product.product.id !== action.payload
+        (product: ProductWithQuantity) => product.product.id !== action.payload
       );
     },
     updateQuantity: (state, action: PayloadAction<ProductWithQuantity>) => {
@@ -49,11 +49,11 @@ export const cartSlice = createSlice({
 export const selectCartState = (state: RootState) => state[CART_SLICE_KEY];
 
 export const selectQuantity = createSelector(selectCartState, (cardState) =>
-  cardState.products.reduce((a, c) => (a += c.quantity), 0)
+  cardState.products.reduce((a: number, c: ProductWithQuantity) => (a += c.quantity), 0)
 );
 
 export const selectTotalPrice = createSelector(selectCartState, (cartState) =>
-  cartState.products.reduce((a, c) => (a += c.product.price * c.quantity), 0)
+  cartState.products.reduce((a: number, c: ProductWithQuantity) => (a += c.product.price * c.quantity), 0)
 );
 
 export const selectProducts = createSelector(
