@@ -7,7 +7,7 @@ import { formatPrice, makeSxStyles } from "../../utils";
 
 type ProductCardProps = {
   product: Product;
-  onAddToCart: (product: Product) => void;
+  onaddItem: (product: Product) => void;
   isVertical?: boolean;
   disabled?: boolean;
 };
@@ -33,7 +33,7 @@ const makeStyles = (isVertical: boolean) =>
 
 const ProductCard: FC<ProductCardProps> = ({
   product,
-  onAddToCart,
+  onaddItem,
   disabled,
   isVertical = true,
 }) => {
@@ -52,7 +52,7 @@ const ProductCard: FC<ProductCardProps> = ({
             {formatPrice(price)}
           </Typography>
           <Button
-            onClick={() => onAddToCart(product)}
+            onClick={() => onaddItem(product)}
             title={disabled ? "Added to Cart" : "Add to Cart"}
             disabled={disabled}
           />

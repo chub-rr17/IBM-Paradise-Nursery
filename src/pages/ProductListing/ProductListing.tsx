@@ -4,7 +4,7 @@ import { PRODUCTS_MOCK } from "../../data";
 import { ProductCard } from "../../components/ProductCard";
 import { Product } from "../../types";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, selectProducts } from "../../store/slices/cartSlice";
+import { addItem, selectProducts } from "../../store/slices/cartSlice";
 
 const groupProductsByCategory = (products: Product[]) => {
   return products.reduce((acc, product) => {
@@ -30,7 +30,7 @@ const ProductListing: FC = () => {
   const productsInCart = useSelector(selectProducts);
 
   const handleOnAddToCard = (product: Product) => {
-    dispatch(addToCart(product));
+    dispatch(addItem(product));
   };
 
   const getIsProductInCart = (id: number) =>
@@ -64,7 +64,7 @@ const ProductListing: FC = () => {
                     <Grid xs={6} sm={4} md={3} lg={2}>
                       <ProductCard
                         product={product}
-                        onAddToCart={handleOnAddToCard}
+                        onaddItem={handleOnAddToCard}
                         disabled={getIsProductInCart(product.id)}
                       />
                     </Grid>
