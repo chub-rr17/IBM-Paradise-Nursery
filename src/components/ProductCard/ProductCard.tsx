@@ -32,7 +32,7 @@ const makeStyles = (isVertical: boolean) => makeSxStyles({
 const ProductCard: FC<ProductCardProps> = ({ product, onAddToCart, isVertical = true }) => {
   const styles = makeStyles(isVertical)
 
-  const { name, image, price } = product;
+  const { name, image, price, description } = product;
 
   return (
     <Card
@@ -44,6 +44,7 @@ const ProductCard: FC<ProductCardProps> = ({ product, onAddToCart, isVertical = 
       />
       <CardContent>
         <Typography variant="h5">{name}</Typography>
+        <Typography variant="body2">{description}</Typography>
         <Typography variant="h6" sx={styles.price}>
           {formatPrice(price)}
         </Typography>
