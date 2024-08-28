@@ -15,6 +15,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { ROUTES } from "../../routes/constants";
 import { selectQuantity } from "../../store/slices/cartSlice";
 import { makeSxStyles } from "../../utils";
+import logo from "../../assets/logo.png";
 
 type NavbarLinkProps = {
   label: string;
@@ -50,6 +51,9 @@ const Navbar: FC = () => {
     <AppBar position="fixed" sx={styles.appBar}>
       <Toolbar disableGutters sx={styles.linkOverride}>
         <Box display="flex" flexGrow={1}>
+          <Link to={ROUTES.Landing}>
+            <Box component="img" src={logo} width={60} />
+          </Link>
           <NavbarLink route={ROUTES.Landing} label="Home" />
           <NavbarLink route={ROUTES.ProductListing} label="Product Listing" />
           <NavbarLink route={ROUTES.ShoppingCart} label="Shopping Cart" />
