@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+
 import { Button } from "../Button";
 import { Product } from "../../types";
 import { formatPrice, makeSxStyles } from "../../utils";
