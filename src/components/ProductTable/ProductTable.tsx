@@ -68,14 +68,13 @@ const ProductTable: FC<ProductTable> = ({
             </Grid>
             <Grid xs={2} item>
               <Button
-                onClick={() => onAddUnit(productWithQuantity)}
+                onClick={() => onSubtractUnit(productWithQuantity)}
+                disabled={quantity <= 1}
               >
-                +
-              </Button>
-              {quantity}
-              <Button onClick={() => onSubtractUnit(productWithQuantity)} disabled={quantity <= 1}>
                 -
               </Button>
+              {quantity}
+              <Button onClick={() => onAddUnit(productWithQuantity)}>+</Button>
             </Grid>
             <Grid xs={2} item>
               {formatPrice(price * quantity)}
