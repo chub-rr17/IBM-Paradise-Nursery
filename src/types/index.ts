@@ -9,6 +9,7 @@ export type Product = {
   price: number;
   image: string;
   category: Category;
+  description: string;
 };
 
 export type ProductWithQuantity = {
