@@ -29,4 +29,3 @@ On this page, you should be able to see each type of plant in the shopping cart,
 
 ## Other
 You will need to store your project code in a GitHub repository with public access. You will submit a link to this repository so a peer can review your work.
-
