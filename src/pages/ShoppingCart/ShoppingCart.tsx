@@ -4,8 +4,7 @@ import { FC } from "react";
 import { OrderSummary } from "../../components/OrderSummary";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  deleteFromCart,
-  resetCart,
+  removeItem,
   selectProducts,
   selectTotalPrice,
   updateQuantity,
@@ -23,7 +22,7 @@ const ShoppingCart: FC = () => {
   const products = useSelector(selectProducts);
 
   const handleOnDelete = (id: number) => {
-    dispatch(deleteFromCart(id));
+    dispatch(removeItem(id));
   };
 
   const handleOnAddUnit = (product: ProductWithQuantity) => {
@@ -76,7 +75,7 @@ const ShoppingCart: FC = () => {
         <Grid xs={4} item>
           <OrderSummary
             totalPrice={totalPrice}
-            onCheckout={() => dispatch(resetCart())}
+            onCheckout={() => alert("Coming soon!")}
           />
         </Grid>
       </Grid>
